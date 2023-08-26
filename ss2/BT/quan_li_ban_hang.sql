@@ -3,7 +3,7 @@ use quan_ly_ban_hang;
 
 create table customer(
 c_id int primary key auto_increment,
-c_ame varchar(50),
+c_name varchar(50),
 age varchar(50)
 );
 
