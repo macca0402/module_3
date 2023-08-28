@@ -23,10 +23,10 @@ status_sub boolean
 );
 create table mark(
 mark_id int primary key auto_increment,
-subID int ,
-stuID int ,
-foreign key (subID) references subject(sub_id),
-foreign key (stuID) references student(student_id),
+sub_ID int ,
+stu_ID int ,
+foreign key (sub_ID) references subject(sub_id),
+foreign key (stu_ID) references student(student_id),
 mark float,
 exam_times int
 );
@@ -47,7 +47,7 @@ VALUES (1, 'CF', 5, 1),
        (2, 'C', 6, 1),
        (3, 'HDJ', 5, 1),
        (4, 'RDBMS', 10, 1);
-INSERT INTO Mark( subID,stuID,mark,exam_times)
+INSERT INTO Mark( sub_ID,stu_ID,mark,exam_times)
 VALUES (1, 1, 8, 1),
        (1, 2, 10, 2),
        (2, 1, 12, 1);
@@ -70,8 +70,8 @@ select * from mark;
 -- Hiển thị các thông tin: StudentName, SubName, Mark. Dữ liệu sắp xếp theo điểm thi (mark) giảm dần. nếu trùng sắp theo tên tăng dần.
 select quan_ly_sinh_vien.student.student_name,quan_ly_sinh_vien.mark.mark,quan_ly_sinh_vien.subject.sub_name
 from student 
-join quan_ly_sinh_vien.mark on 	quan_ly_sinh_vien.student.student_id=quan_ly_sinh_vien.mark.stuID
-join quan_ly_sinh_vien.subject on quan_ly_sinh_vien.mark.subID=quan_ly_sinh_vien.subject.sub_id
+join quan_ly_sinh_vien.mark on 	quan_ly_sinh_vien.student.student_id=quan_ly_sinh_vien.mark.stu_ID
+join quan_ly_sinh_vien.subject on quan_ly_sinh_vien.mark.sub_ID=quan_ly_sinh_vien.subject.sub_id
 order by mark desc,quan_ly_sinh_vien.student.student_name  
 ;
 
