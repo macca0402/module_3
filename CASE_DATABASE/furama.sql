@@ -159,6 +159,8 @@ VALUE(1, 5, 'Nguyễn Thị Hào', '1970-11-07', 0, '643431213', '0945423362', '
      (8, 3, 'Nguyễn Thị Hào', '1999-04-08', 0, '965656433', '0763212345', 'haohao99@gmail.com', '55 Nguyễn Văn Linh, Kon Tum'),
      (9, 1, 'Trần Đại Danh', '1994-07-01', 1, '432341235', '0643343433', 'danhhai99@gmail.com', '24 Lý Thường Kiệt, Quảng Ngãi'),
      (10, 2, 'Nguyễn Tâm Đắc', '1989-07-01', 1, '344343432', '0987654321', 'dactam@gmail.com', '22 Ngô Quyền, Đà Nẵng');
+     
+
 SELECT * FROM khach_hang;
      
 INSERT INTO kieu_thue (ma_kieu_thue, ten_kieu_thue)
@@ -254,17 +256,43 @@ left join dich_vu_di_kem on hop_dong_chi_tiet.ma_dich_vu_di_kem=dich_vu_di_kem.m
 group by khach_hang.ma_khach_hang,khach_hang.ho_ten,loai_khach.ten_loai_khach,hop_dong.ma_hop_dong,dich_vu.ten_dich_vu,hop_dong.ngay_lam_hop_dong,hop_dong.ngay_ket_thuc
 ;
 
--- 6.	Hiển thị ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, 
+-- 6.Hiển thị ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, 
 -- ten_loai_dich_vu của tất cả các loại dịch vụ chưa từng được
---  khách hàng thực hiện đặt từ quý 1 của năm 2021 (Quý 1 là tháng 1, 2, 3).
+-- khách hàng thực hiện đặt từ quý 1 của năm 2021 (Quý 1 là tháng 1, 2, 3).
+select dich_vu.ma_dich_vu,dich_vu.ten_dich_vu,dich_vu.dien_tich,dich_vu.dien_tich,dich_vu.chi_phi_thue,loai_dich_vu.ten_loai_dich_vu
+from dich_vu
+join hop_dong on dich_vu.ma_dich_vu=hop_dong.ma_dich_vu
+join loai_dich_vu on dich_vu.ma_dich_vu=loai_dich_vu.ma_loai_dich_vu
+where month(hop_dong.ngay_lam_hop_dong) not in(1,2,3);
+ -- 7. Hiển thị thông tin ma_dich_vu, ten_dich_vu, dien_tich, so_nguoi_toi_da, chi_phi_thue,
+ -- ten_loai_dich_vu của tất cả các loại dịch vụ đã từng được khách hàng đặt phòng 
+ -- trong năm 2020 nhưng chưa từng được khách hàng đặt phòng trong năm 2021.
 
-SELECT * FROM quan_ly_nghi_duong_furama.dich_vu;
+select dich_vu.ma_dich_vu,dich_vu.ten_dich_vu,dich_vu.dien_tich,dich_vu.so_nguoi_toi_da,dich_vu.chi_phi_thue,loai_dich_vu.ten_loai_dich_vu
+from dich_vu
+left join loai_dich_vu on loai_dich_vu.ma_loai_dich_vu=dich_vu.ma_loai_dich_vu
+left join hop_dong on hop_dong.ma_dich_vu=dich_vu.ma_dich_vu
+where year(hop_dong.ngay_lam_hop_dong) in (2020) and year(hop_dong.ngay_lam_hop_dong) not in (2021);
 
 
+-- 8.Hiển thị thông tin ho_ten khách hàng có trong hệ thống, với yêu cầu ho_ten không trùng nhau.
+-- Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên.
+INSERT INTO khach_hang
+VALUE ('11', '3', 'Trương Đình Nghệ', '1981-07-08',0, '546546465', '0988999844', 'nghenhan2703@gmail.com', '227 Lý Thái Tổ, Gia Lai');
+select khach_hang.ho_ten
+from khach_hang;
 
+select distinct (khach_hang.ho_ten)
+from khach_hang;
+-- chỉ mới nêu được 1 cách 
 
-
-
+-- 9.Thực hiện thống kê doanh thu theo tháng, 
+-- nghĩa là tương ứng với mỗi tháng trong năm 2021 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
+select * 
+from hop_dong
+where year(hop_dong.ngay_lam_hop_dong) in(2021)
+order by month(hop_dong.ngay_lam_hop_dong) asc;
+-- doanh thu = tien dich vu - tien dat coc
 
 
 
