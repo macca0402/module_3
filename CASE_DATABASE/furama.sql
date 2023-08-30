@@ -288,11 +288,19 @@ from khach_hang;
 
 -- 9.Thực hiện thống kê doanh thu theo tháng, 
 -- nghĩa là tương ứng với mỗi tháng trong năm 2021 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
-select * 
-from hop_dong
-where year(hop_dong.ngay_lam_hop_dong) in(2021)
-order by month(hop_dong.ngay_lam_hop_dong) asc;
--- doanh thu = tien dich vu - tien dat coc
+SELECT MONTH(ngay_lam_hop_dong) AS thang, COUNT(ma_khach_hang) AS so_khach_hang
+FROM hop_dong
+WHERE YEAR(ngay_lam_hop_dong) = 2021
+GROUP BY MONTH(ngay_lam_hop_dong)
+ORDER BY MONTH(ngay_lam_hop_dong);
+-- 10.Hiển thị thông tin tương ứng với từng hợp đồng thì đã sử dụng bao nhiêu dịch vụ đi kèm.
+-- Kết quả hiển thị bao gồm ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, 
+-- so_luong_dich_vu_di_kem (được tính dựa trên việc sum so_luong ở dich_vu_di_kem).
+SELECT * FROM quan_ly_nghi_duong_furama.dich_vu_di_kem;
+select hd.ma_hop_dong,hd.ngay_lam_hop_dong,hd.ngay_ket_thuc,hd.tien_dat_coc,count(hop_dong_chi_tiet.ma_dich_vu_di_kem) as so_luong_dich_vu_di_kem 
+from hop_dong hd
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong=hd.ma_hop_dong
+group by ma_hop_dong
 
 
 
