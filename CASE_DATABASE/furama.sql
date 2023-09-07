@@ -399,3 +399,74 @@ select nhan_vien.ma_nhan_vien,nhan_vien.ho_ten,nhan_vien.email,nhan_vien.so_dien
 from nhan_vien
 join khach_hang
 
+-- 21.	Tạo khung nhìn có tên là v_nhan_vien để lấy được thông tin của tất cả các nhân viên có địa chỉ là “Hải Châu”
+--  và đã từng lập hợp đồng cho một hoặc nhiều khách hàng bất kì với ngày lập hợp đồng là “12/12/2019”.
+v_nhan_viencreate view v_nhan_vien as
+select nhan_vien.*,hop_dong.ngay_lam_hop_dong
+from nhan_vien 
+join hop_dong on hop_dong.ma_nhan_vien=nhan_vien.ma_nhan_vien
+where nhan_vien.dia_chi like'%Hải Châu%'and date(hop_dong.ngay_lam_hop_dong) like'2019-12-12'
+
+-- 22.	Thông qua khung nhìn v_nhan_vien thực hiện cập nhật địa chỉ thành “Liên Chiểu” 
+-- đối với tất cả các nhân viên được nhìn thấy bởi khung nhìn này.
+select * from v_nhan_vien
+set sql_safe_updates=0
+update v_nhan_vien
+set dia_chi='Liên Chiểu'
+
+-- 23.	Tạo Stored Procedure sp_xoa_khach_hang dùng để xóa thông tin của một khách hàng nào đó
+--  với ma_khach_hang được truyền vào như là 1 tham số của sp_xoa_khach_hang.
+delimiter //
+create procedure sp_xoa_khach_hang(in id int)
+begin
+delete from khach_hang where khach_hang.ma_khach_hang=id;
+end //
+delimiter ;
+call sp_xoa_khach_hang(10);
+-- 24.	Tạo Stored Procedure sp_them_moi_hop_dong dùng để thêm mới vào bảng hop_dong với yêu cầu sp_them_moi_hop_dong phải thực hiện
+-- kiểm tra tính hợp lệ của dữ liệu bổ sung,
+-- với nguyên tắc không được trùng khóa chính và đảm bảo toàn vẹn tham chiếu đến các bảng liên quan.
+delimiter //
+create procedure sp_them_moi_hop_dong ( in
+ngay_lam_hop_dong DATETIME,
+ngay_ket_thuc DATETIME,
+tien_dat_coc DOUBLE,
+ma_nhan_vien INT,
+ma_khach_hang INT,
+ma_dich_vu INT)
+begin 
+insert into hop_dong(ngay_lam_hop_dong,ngay_ket_thuc,tien_dat_coc ,ma_nhan_vien,ma_khach_hang,ma_dich_vu)
+values (ngay_lam_hop_dong,ngay_ket_thuc,tien_dat_coc ,ma_nhan_vien,ma_khach_hang,ma_dich_vu);
+end // 
+delimiter ;
+call sp_them_moi_hop_dong('2021-12-09','2021-12-10',1000,2,5,4);
+call sp_them_moi_hop_dong('2020-11-09','2019-12-10',1000,1,1,1);
+call sp_them_moi_hop_dong('2021-12-09','2020-06-10',1000,2,3,4);
+
+-- 25.	Tạo Trigger có tên tr_xoa_hop_dong khi xóa bản ghi trong bảng hop_dong thì hiển thị tổng số lượng bản ghi
+--  còn lại có trong bảng hop_dong ra giao diện console của database.
+-- Lưu ý: Đối với MySQL thì sử dụng SIGNAL hoặc ghi log thay cho việc ghi ở console.
+create table lich_su_hop_dong(
+id int primary key auto_increment,
+ma_hop_dong int,
+thoi_gian_xoa datetime
+);
+delimiter //
+create trigger tr_xoa_hop_dong 
+after delete 
+on hop_dong
+for each row
+begin
+insert into lich_su_hop_dong(ma_hop_dong,thoi_gian_xoa) values (old.ma_hop_dong,now());
+end //
+delimiter ;
+DELIMITER //
+CREATE PROCEDURE sp_xoa_hop_dong (IN id INT)
+BEGIN
+  DELETE FROM hop_dong WHERE hop_dong.ma_hop_dong = id;
+  SELECT count(*) FROM hop_dong;
+END//
+DELIMITER ;
+call sp_xoa_hop_dong(9);
+select * from lich_su_hop_dong;
+
