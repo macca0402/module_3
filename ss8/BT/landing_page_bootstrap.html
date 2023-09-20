@@ -4,20 +4,132 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-    <!-- <link rel="stylesheet" href="../../bootstrap-5.2.3-dist/css/bootstrap.css">
-    <script src="../../bootstrap-5.2.3-dist/js/bootstrap.js"></script> -->
+
 
     <style>
         * {
             font-family: "Segoe UI", SegoeUI, "Helvetica Neue";
         }
+
+        .image1 {
+            position: relative;
+        }
+
+        #title-1 {
+            position: absolute;
+            color: black;
+            font-weight: bolder;
+            font-size: 93px;
+            top: -7px;
+            left: 11px;
+            width: 40%;
+        }
+
+        #title-2 {
+            position: absolute;
+            color: black;
+            font-weight: bolder;
+            font-size: 29px;
+            top: 427px;
+            left: 11px;
+            width: 40%;
+        }
+
+        #title-3 {
+            position: absolute;
+            color: black;
+            font-weight: bolder;
+            font-size: 23px;
+            top: 617px;
+            left: 11px;
+            width: 40%;
+        }
+
+        #title-5 {
+            position: relative;
+            width: 100%;
+            height: 334px;
+            background-color: #f2f2f2;
+        }
+
+        #title-5 h1 {
+            position: absolute;
+            font-size: 83px;
+            width: 51%;
+            font-weight: 500;
+            left: 27px;
+
+        }
+
+        #title-5 h3 {
+            position: absolute;
+            font-size: 30px;
+            width: 51%;
+            left: 27px;
+            top: 136px;
+        }
+
+        #title-5-1 img {
+            position: absolute;
+            width: 34%;
+            height: 334px;
+            background-color: lightgray;
+            right: 0;
+        }
+
+        #title-5-1 nav {
+            position: absolute;
+            top: 200px;
+            width: 51%;
+            left: 27px;
+            font-size: 55px;
+        }
+        #title-6 h1{
+            position: relative;
+            left: 80px;
+            font-size: 79px;
+        }
+        .left{
+            width:50%;
+        }
+        .left video{
+            width:100%;
+            height:600px;
+        }
+        .right{
+            width:50%;
+        }
+        .left,.right{
+            float: left;
+            height: 600px;
+            box-sizing: content-box;
+        }
+        #right-1,#right-2{
+            width: 50%;
+            float:left;
+            display: block;
+            height: 50%;
+            flex: border-box;
+        }
+        #right-3,#right-4{
+            width: 50%;
+            float:left;
+            display: block;
+            height: 50%;
+            display: inline-block;
+        }
+        .card img{
+            width: 80%;
+            height: 200px;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="../../bootstrap-5.2.3-dist/css/bootstrap.css">
+    <script src="../../bootstrap-5.2.3-dist/js/bootstrap.js"></script>
 </head>
 
 <body>
+
 <nav class="navbar navbar-expand-lg bg-light" id="nav_bar">
     <div class="container-fluid">
         <a class="navbar-brand" href="https://www.microsoft.com/vi-vn/">
@@ -152,37 +264,371 @@
         </div>
     </div>
 </nav>
-<div class="badge bg-primary text-wrap" style="font-size:20px;vertical-align: middle;width: 100%;height:50px;border-radius: 0;">
+<div class="badge bg-primary text-wrap"
+     style="font-size:20px;vertical-align: middle;width: 100%;height:50px;border-radius: 0;">
     <a href="" class="text-light stretched-link" style="align-content: center;box-sizing:border-box;">
         Save big on Surface back-to-school deals. Shop deals
     </a>
 </div>
-<div style="position: relative;">
+<div class="image1">
     <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Go2-hero-beat3-1?scl=1" alt="" width="100%">
-    <div style="position: absolute; bottom: 0; left: 0.5em; width: 400px; font-weight: bold; color: #fff;">
-        <p>Laptops designed by Microsoft</p>
+    <p id="title-1">Laptops designed by Microsoft</p>
+    <p id="title-2">Save on back-to-school essentials now. Portability, power, flexibility, speed—whatever you’re after,
+        there’s a Surface to match.</p>
+    <div id="title-3">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="text-dark" href="#">Shop deals</a></li>
+                <li class="breadcrumb-item"><a class="text-dark" href="#">Explore all</a></li>
+                <li class="breadcrumb-item"><a class="text-dark" href="#">Surface Laptop Go 2</a></li>
+            </ol>
+        </nav>
     </div>
 </div>
-<!-- <div style="position: relative;background:url(https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Go2-hero-beat3-1?scl=1); width: 100%">
-    <div style="position: absolute;padding-left: 0; font-weight: bold; color: #fff;">
-        <p>Laptops designed by Microsoft</p>
+<div class="container  padding-15" id="title-4">
+    <div class="row">
+        <div class="col-12">
         </div>
-</div> -->
-<!-- <div style="position: relative; background: url(https://webaffiliatevn.com/wp-content/uploads/2020/08/anh-song-nui-thien-nhien.jpg); width: 500px; height: 300px;">
+        <div class="col-12">
+            <ul class="d-flex flex-wrap list-inline justify-content-left row no-gutters">
 
-    <div style="position: absolute; bottom: 0; left: 0.5em; width: 400px; font-weight: bold; color: #fff;">
-    <p>(Đây là đoạn text sẽ xuất hiện trên hình ở vị trí phía dưới bên trái)</p>
+                <li class="font-weight-semibold pl-0 pr-2 my-3 d-flex align-items-center col-4 col-sm-6 col-md-4 col-lg-2"
+                    data-bi-id="c1c1c4m1r1a3" data-bi-cn="c1c1c4m1r1a3">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Compare-devices-icon?fmt=png-alpha"
+                         class="img-fluid flex-shrink-0 mr-1 blur-up lazypreload ls-is-cached lazyloaded"
+                         alt="Compare devices icon">
+                    <a href="https://www.microsoft.com/en-us/surface/devices/compare-devices"
+                       class="mw-fit-content cta ml-2" aria-label="Compare models from Microsoft Surface" target="_self"
+                       data-bi-cn="Compare models" data-bi-ecn="COMPARE MODELS" data-bi-bhvr="0" data-bi-ct="text"
+                       data-bi-compnm="Quick Links" data-bi-id="n1c1c1c4m1r1a3">Compare models</a>
+                </li>
+
+                <li class="font-weight-semibold pl-0 pr-2 my-3 d-flex align-items-center col-4 col-sm-6 col-md-4 col-lg-2"
+                    data-bi-id="c2c1c4m1r1a3" data-bi-cn="c2c1c4m1r1a3">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Help-Me-Choose-icon?fmt=png-alpha"
+                         class="img-fluid flex-shrink-0 mr-1 blur-up lazypreload ls-is-cached lazyloaded"
+                         alt="Help Me Choose icon">
+                    <a href="https://www.microsoft.com/en-us/surface/devices/help-me-choose"
+                       class="mw-fit-content cta ml-2"
+                       aria-label="Help me decide a new surface by answering few questions" target="_self"
+                       data-bi-cn="Help me decide" data-bi-ecn="HELP ME DECIDE" data-bi-bhvr="OTHER" data-bi-ct="text"
+                       data-bi-compnm="Quick Links" data-bi-id="n1c2c1c4m1r1a3">Help me decide</a>
+                </li>
+
+                <li class="font-weight-semibold pl-0 pr-2 my-3 d-flex align-items-center col-4 col-sm-6 col-md-4 col-lg-2"
+                    data-bi-id="c3c1c4m1r1a3" data-bi-cn="c3c1c4m1r1a3">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Find-deals-icon?fmt=png-alpha"
+                         class="img-fluid flex-shrink-0 mr-1 blur-up lazypreload ls-is-cached lazyloaded"
+                         alt="Find deals icon">
+                    <a href="https://www.microsoft.com/en-us/store/b/surface-deals" class="mw-fit-content cta ml-2"
+                       aria-label="Surface deals for Laptops and Tablets" target="_self" data-bi-cn="Surface deals"
+                       data-bi-ecn="SURFACE DEALS" data-bi-bhvr="PARTNERREFERRAL" data-bi-ct="text"
+                       data-bi-compnm="Quick Links" data-bi-id="n1c3c1c4m1r1a3" data-bi-prtnm="ms store"
+                       data-bi-prod="surface deals">Surface deals</a>
+                </li>
+
+                <li class="font-weight-semibold pl-0 pr-2 my-3 d-flex align-items-center col-4 col-sm-6 col-md-4 col-lg-2"
+                    data-bi-id="c4c1c4m1r1a3" data-bi-cn="c4c1c4m1r1a3">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Why-Surface-icon?fmt=png-alpha"
+                         class="img-fluid flex-shrink-0 mr-1 blur-up lazypreload ls-is-cached lazyloaded"
+                         alt="Why Surface icon">
+                    <a href="https://www.microsoft.com/en-us/surface/why-surface" class="mw-fit-content cta ml-2"
+                       aria-label="Why choose Surface are designed for every part of your life" target="_self"
+                       data-bi-cn="Why choose Surface" data-bi-ecn="WHY CHOOSE SURFACE" data-bi-bhvr="OTHER"
+                       data-bi-ct="text" data-bi-compnm="Quick Links" data-bi-id="n1c4c1c4m1r1a3">Why choose Surface</a>
+                </li>
+
+                <li class="font-weight-semibold pl-0 pr-2 my-3 d-flex align-items-center col-4 col-sm-6 col-md-4 col-lg-2"
+                    data-bi-id="c5c1c4m1r1a3" data-bi-cn="c5c1c4m1r1a3">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-For-education-icon?fmt=png-alpha"
+                         class="img-fluid flex-shrink-0 mr-1 blur-up lazypreload ls-is-cached lazyloaded"
+                         alt="For education icon">
+                    <a href="https://www.microsoft.com/en-us/surface/business/education" class="mw-fit-content cta ml-2"
+                       aria-label="Surface for Education information from Microsoft" target="_self"
+                       data-bi-cn="Surface for Education" data-bi-ecn="SURFACE FOR EDUCATION" data-bi-bhvr="OTHER"
+                       data-bi-ct="text" data-bi-compnm="Quick Links" data-bi-id="n1c5c1c4m1r1a3">Surface for
+                        Education</a>
+                </li>
+
+                <li class="font-weight-semibold pl-0 pr-2 my-3 d-flex align-items-center col-4 col-sm-6 col-md-4 col-lg-2"
+                    data-bi-id="c6c1c4m1r1a3" data-bi-cn="c6c1c4m1r1a3">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-For-business-icon?fmt=png-alpha"
+                         class="img-fluid flex-shrink-0 mr-1 blur-up lazypreload ls-is-cached lazyloaded"
+                         alt="For business icon">
+                    <a href="https://www.microsoft.com/en-us/surface/business" class="mw-fit-content cta ml-2"
+                       aria-label="Built for Business and learn about business technology and computers" target="_self"
+                       data-bi-cn="Built for Business" data-bi-ecn="BUILT FOR BUSINESS" data-bi-bhvr="OTHER"
+                       data-bi-ct="text" data-bi-compnm="Quick Links" data-bi-id="n1c6c1c4m1r1a3">Built for Business</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</div>
+<div id="title-5">
+    <div id="title-5-1">
+        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-event-homepage-banner-logo-1:VP5-1842x1036?fmt=png-alpha"
+             alt="">
+        <h1>Join us to see what’s next</h1>
+        <h3>Watch the full event at 1pm EDT on September 21, 2023.</h3>
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="text-dark" href="#">Mark your calendar</a></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div id="title-6">
+    <h1>For all the ways you create</h1>
+</div>
+<div class="row flex-row">
+    <div class="col-12 d-none d-sm-flex">
+        <div class="d-none d-sm-flex desktopD">
+            <div class="mr-4">
+                <h2 style="margin-left: 20px">
+                    2-in-1 PCs
+                </h2>
+            </div>
+            <div style="margin-left: 50px">
+                <button type="button" class="btn btn-primary">See all Surface 2-in-1 PCs</button>
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="left" >
+            <video src="https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/MSFT_Surface_Home_Surface-Pro-9_Platinum_360-video"></video>
+        </div>
+        <div class="right" >
+
+            <div id="right-1">
+                <div class="card" style="width: 100%;">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-View-Surface-Pro-9-Sapphire-Surface-Type-Cover-attached?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-dark" href="#">Shop deals ></a></li>
+                            </ol>
+                        </nav>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label" >
+                                Compare
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="right-2" >
+                <div class="card" style="width: 100%;">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-View-Surface-Pro-9-Sapphire-Surface-Type-Cover-attached?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-dark" href="#">Shop deals ></a></li>
+                            </ol>
+                        </nav>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" >
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Compare
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="right-3" >
+                <div class="card" style="width: 100%;">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-View-Surface-Pro-9-Sapphire-Surface-Type-Cover-attached?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-dark" href="#">Shop deals ></a></li>
+                            </ol>
+                        </nav>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" >
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Compare
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="right-4" >
+
+                <div class="card" style="width: 100%;">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-View-Surface-Pro-9-Sapphire-Surface-Type-Cover-attached?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-dark" href="#">Shop deals ></a></li>
+                            </ol>
+                        </nav>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label">
+                                Compare
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="title-7">
+    <h1>For all the ways you create</h1>
+</div>
+<div class="row flex-row">
+    <div class="col-12 d-none d-sm-flex">
+        <div class="d-none d-sm-flex desktopD">
+            <div class="mr-4">
+                <h2 style="margin-left: 20px">
+                    2-in-1 PCs
+                </h2>
+            </div>
+            <div style="margin-left: 50px">
+                <button type="button" class="btn btn-primary">See all Surface 2-in-1 PCs</button>
+            </div>
+        </div>
+    </div>
+    <div class="body">
+
+        <div class="right" >
+
+            <div id="right-1">
+                <div class="card" style="width: 100%;">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-View-Surface-Pro-9-Sapphire-Surface-Type-Cover-attached?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-dark" href="#">Shop deals ></a></li>
+                            </ol>
+                        </nav>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label" >
+                                Compare
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="right-2" >
+                <div class="card" style="width: 100%;">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-View-Surface-Pro-9-Sapphire-Surface-Type-Cover-attached?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-dark" href="#">Shop deals ></a></li>
+                            </ol>
+                        </nav>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" >
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Compare
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="right-3" >
+                <div class="card" style="width: 100%;">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-View-Surface-Pro-9-Sapphire-Surface-Type-Cover-attached?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-dark" href="#">Shop deals ></a></li>
+                            </ol>
+                        </nav>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" >
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Compare
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="right-4" >
+
+                <div class="card" style="width: 100%;">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-View-Surface-Pro-9-Sapphire-Surface-Type-Cover-attached?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-dark" href="#">Shop deals ></a></li>
+                            </ol>
+                        </nav>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label">
+                                Compare
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="left" >
+            <video src="https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/MSFT_Surface_Home_Surface-Pro-9_Platinum_360-video"></video>
+        </div>
     </div>
 
-    <p style="position: absolute; top: 1em; right: 2em; width: 120px; padding: 4px; background-color: #fff; font-weight: bold; font-size: 11px;">
-    (Đây là đoạn text sẽ xuất hiện trên hình ở vị trí phía trên bên phải)
-    </p>
+</div>
+<div class="title-8">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE59LMj?ver=4f03" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Save up to $450 on Surface Pro 9</h5>
+                    <p>The tablet flexibility you want and the laptop performance you need—all in one ultra-portable device.</p>
+                </div>
+            </div>
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE59LMj?ver=4f03" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Save up to $450 on Surface Pro 9</h5>
+                    <p>The tablet flexibility you want and the laptop performance you need—all in one ultra-portable device.</p>
+                </div>
+            </div>
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE59LMj?ver=4f03" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Save up to $450 on Surface Pro 9</h5>
+                    <p>The tablet flexibility you want and the laptop performance you need—all in one ultra-portable device.</p>
+                </div>
+            </div>
 
-    </div> -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
 </body>
 
 </html>
