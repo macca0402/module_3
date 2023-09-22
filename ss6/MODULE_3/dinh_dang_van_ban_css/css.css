@@ -1,17 +1,20 @@
-pre{
+pre {
     border: 1px solid black;
     height: 500px;
     width: 500px;
 }
-p.vn{
+
+p.vn {
     font-size: 50px;
     text-transform: uppercase;
 }
-p.body1{
+
+p.body1 {
     text-indent: 100px;
     text-align: justify;
 }
-body{
-    font-family: "Times New Roman",Arial;
+
+body {
+    font-family: "Times New Roman", Arial;
     font-size: 30px;
 }

@@ -1,11 +1,13 @@
-body{
+body {
     font-family: Arial;
 }
-#menu, #menu ul, #menu li{
+
+#menu, #menu ul, #menu li {
     padding: 0;
     margin: 0;
 }
-#menu li{
+
+#menu li {
 
     list-style: none;
     position: relative;
@@ -13,22 +15,27 @@ body{
     height: 30px;
     padding: 0 20px;
     background-color: black;
-    line-height: 30px;// chiểu cao mỗi dòng văn bản
-    cursor:pointer; // chuyển biểu tưởng của con trỏ màn hình sang hình bàn tay
+    line-height: 30px;
+/ / chiểu cao mỗi dòng văn bản cursor: pointer;
+/ / chuyển biểu tưởng của con trỏ màn hình sang hình bàn tay
 }
-#menu li a{
-    text-decoration: none; // loại bỏ gạch chân của thẻ a
-    color:white;
+
+#menu li a {
+    text-decoration: none;
+/ / loại bỏ gạch chân của thẻ a color: white;
 }
-#menu li:hover{
+
+#menu li:hover {
     background-color: red;
 }
-#menu ul ul{
+
+#menu ul ul {
     position: absolute;
     top: 0;
     left: 140px;
     visibility: hidden;
 }
-#menu ul li:hover ul{
+
+#menu ul li:hover ul {
     visibility: visible;
 }

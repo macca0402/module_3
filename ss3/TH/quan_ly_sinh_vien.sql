@@ -1,5 +1,7 @@
-CREATE DATABASE QuanLySinhVien;
-USE QuanLySinhVien;
+CREATE
+DATABASE QuanLySinhVien;
+USE
+QuanLySinhVien;
 CREATE TABLE Class
 (
     ClassID   INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -55,41 +57,46 @@ VALUES (1, 'CF', 5, 1),
        (2, 'C', 6, 1),
        (3, 'HDJ', 5, 1),
        (4, 'RDBMS', 10, 1);
-       
+
 INSERT INTO Mark (SubId, StudentId, Mark, ExamTimes)
 VALUES (1, 1, 8, 1),
        (1, 2, 10, 2),
        (2, 1, 12, 1);
-       
+
 SELECT Address, COUNT(StudentId) AS 'Số lượng học viên'
 FROM Student
 GROUP BY Address;
 
-SELECT S.StudentId,S.StudentName, AVG(Mark)
-FROM Student S join Mark M on S.StudentId = M.StudentId
+SELECT S.StudentId, S.StudentName, AVG(Mark)
+FROM Student S
+         join Mark M on S.StudentId = M.StudentId
 GROUP BY S.StudentId, S.StudentName;
 
-SELECT S.StudentId,S.StudentName, AVG(Mark)
-FROM Student S join Mark M on S.StudentId = M.StudentId
+SELECT S.StudentId, S.StudentName, AVG(Mark)
+FROM Student S
+         join Mark M on S.StudentId = M.StudentId
 GROUP BY S.StudentId, S.StudentName;
 
-SELECT S.StudentId,S.StudentName, AVG(Mark)
-FROM Student S join Mark M on S.StudentId = M.StudentId
+SELECT S.StudentId, S.StudentName, AVG(Mark)
+FROM Student S
+         join Mark M on S.StudentId = M.StudentId
 GROUP BY S.StudentId, S.StudentName
 HAVING AVG(Mark) > 15;
 
 SELECT S.StudentId, S.StudentName, AVG(Mark)
-FROM Student S join Mark M on S.StudentId = M.StudentId
+FROM Student S
+         join Mark M on S.StudentId = M.StudentId
 GROUP BY S.StudentId, S.StudentName;
 
 SELECT S.StudentId, S.StudentName, AVG(Mark)
-FROM Student S join Mark M on S.StudentId = M.StudentId
+FROM Student S
+         join Mark M on S.StudentId = M.StudentId
 GROUP BY S.StudentId, S.StudentName
 HAVING AVG(Mark) >= ALL (SELECT AVG(Mark) FROM Mark GROUP BY Mark.StudentId);
 -- Hiển thị tất cả các thông tin môn học (bảng subject) có credit lớn nhất.
-select * 
-from subject 
-where credit =(select max(subject.credit) from subject);
+select *
+from subject
+where credit = (select max(subject.credit) from subject);
 
 -- Hiển thị các thông tin môn học có điểm thi lớn nhất.
 
