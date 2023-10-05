@@ -33,13 +33,22 @@
                 </td>
             </tr>
         </c:forEach>
+        <tr>
+
+            <td colspan="5">
+                <div align="center">
+                    <a  href="/users-servlet?action=sort">Sắp xếp theo tên</a>
+                </div>
+
+            </td>
+        </tr>
     </table>
 </div>
 <div>
     <form action="/users-servlet?action=search" method="post">
         <table>
-            <tr>
-                <td>
+            <tr >
+                <td >
                     <input type="text" placeholder="Nhập từ khóa:" name="country">
                 </td>
                 <td>
@@ -49,5 +58,6 @@
         </table>
     </form>
 </div>
+
 </body>
 </html>

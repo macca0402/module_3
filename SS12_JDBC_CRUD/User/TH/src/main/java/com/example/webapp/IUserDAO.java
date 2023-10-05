@@ -6,7 +6,7 @@ import java.util.List;
 public interface IUserDAO {
     void insertUser(User user);
     List<User> search(String COUNTRY);
-
+    List<User> sort();
     List<User> selectAllUsers();
 
     boolean deleteUser(int id) throws SQLException;

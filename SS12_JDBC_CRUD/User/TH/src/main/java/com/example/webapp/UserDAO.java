@@ -15,7 +15,7 @@ public class UserDAO implements IUserDAO {
     private static final String DELETE = "delete from users where id=?;";
     private static final String UPDATE = "update users set users.name=?,users.email=?,users.country=? where id=?;";
     private static final String SEARCH = "select * from users where users.country =?;";
-
+    private static final String SORT = "select * from users order by users.name asc;";
     protected Connection getConnection() {
         Connection connection = null;
         try {
@@ -75,6 +75,29 @@ public class UserDAO implements IUserDAO {
                 e.printStackTrace();
             }
         }
+        return userList;
+    }
+
+    @Override
+    public List<User> sort() {
+        List<User> userList=new ArrayList<>();
+        User user=null;
+        Connection connection=getConnection();
+            try {
+                PreparedStatement preparedStatement=connection.prepareStatement(SORT);
+                ResultSet rs=preparedStatement.executeQuery();
+                while(rs.next()){
+                    int id=rs.getInt("id");
+                    String name=rs.getString("name");
+                    String email=rs.getString("email");
+                    String country=rs.getString("country");
+                    user = new User(id,name,email,country);
+                    userList.add(user);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
         return userList;
     }
 
@@ -150,4 +173,5 @@ public class UserDAO implements IUserDAO {
         UserDAO user =new UserDAO();
         System.out.println(user.search("VietNam"));
     }
+
 }
