@@ -16,6 +16,12 @@ public class UserDAO implements IUserDAO {
     private static final String UPDATE = "update users set users.name=?,users.email=?,users.country=? where id=?;";
     private static final String SEARCH = "select * from users where users.country =?;";
     private static final String SORT = "select * from users order by users.name asc;";
+    private static final String SELECT_ALL_SP="call find_all();";
+   // Gọi Stored Procedures từ JDBC sử dụng CallableStatement cho chức năng sửa thông tin user
+    private static final String UPDATE_SP="CALL updateInfo(?,?,?,?);";
+    //Gọi Stored Procedures từ JDBC sử dụng CallableStatement cho chức năng xoá user
+    private static final String DELETE_SP="call deleteUser(?);";
+
     protected Connection getConnection() {
         Connection connection = null;
         try {
@@ -103,49 +109,82 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public List<User> selectAllUsers() {
-        List<User> users = new ArrayList<>();
-        Connection connection = getConnection();
+//        List<User> users = new ArrayList<>();
+//        Connection connection = getConnection();
+//        try {
+//            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);
+//            System.out.println(preparedStatement);
+//
+//            ResultSet rs = preparedStatement.executeQuery();
+//
+//            while (rs.next()) {
+//                int id = rs.getInt("id");
+//                String name = rs.getString("name");
+//                String email = rs.getString("email");
+//                String country = rs.getString("country");
+//                users.add(new User(id, name, email, country));
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return users;
+        List<User> list=new ArrayList<>();
+        Connection connection=getConnection();
+        User user;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);
-            System.out.println(preparedStatement);
-
-            ResultSet rs = preparedStatement.executeQuery();
-
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                String country = rs.getString("country");
-                users.add(new User(id, name, email, country));
+            CallableStatement callableStatement=connection.prepareCall(SELECT_ALL_SP);
+            ResultSet rs=callableStatement.executeQuery();
+            while(rs.next()){
+                int id=rs.getInt("id");
+                String name=rs.getString("name");
+                String email=rs.getString("email");
+                String country=rs.getString("country");
+                user =new User(id,name,email,country);
+                list.add(user);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return users;
+        return list;
     }
 
     @Override
     public boolean deleteUser(int id) throws SQLException {
+//        boolean rowDeleted;
+//        Connection connection = getConnection();
+//        PreparedStatement statement = connection.prepareStatement(DELETE);
+//        statement.setInt(1, id);
+//        rowDeleted = statement.executeUpdate() > 0;
+//        return rowDeleted;
         boolean rowDeleted;
-        Connection connection = getConnection();
-        PreparedStatement statement = connection.prepareStatement(DELETE);
-        statement.setInt(1, id);
-        rowDeleted = statement.executeUpdate() > 0;
+        Connection connection=getConnection();
+        CallableStatement callableStatement=connection.prepareCall(DELETE_SP);
+        callableStatement.setInt(1,id);
+        rowDeleted =callableStatement.executeUpdate()>0;
         return rowDeleted;
     }
 
     @Override
     public boolean updateUser(User user) throws SQLException {
+//        boolean rowUpdated;
+//        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE);) {
+//            statement.setString(1, user.getName());
+//            statement.setString(2, user.getEmail());
+//            statement.setString(3, user.getCountry());
+//            statement.setInt(4, user.getId());
+//            rowUpdated = statement.executeUpdate() > 0;
+//        }
+//        return rowUpdated;
         boolean rowUpdated;
-        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE);) {
-            statement.setString(1, user.getName());
-            statement.setString(2, user.getEmail());
-            statement.setString(3, user.getCountry());
-            statement.setInt(4, user.getId());
-            rowUpdated = statement.executeUpdate() > 0;
-        }
-        return rowUpdated;
-
+        Connection connection =getConnection();
+        CallableStatement callableStatement=connection.prepareCall(UPDATE_SP);
+//        CALL updateInfo(7,"Lan","lan@gmail.com","NewYork");
+        callableStatement.setInt(1,user.getId());
+        callableStatement.setString(2,user.getName());
+        callableStatement.setString(3, user.getEmail());
+        callableStatement.setString(4, user.getCountry());
+         rowUpdated = callableStatement.executeUpdate()>0;
+         return rowUpdated;
     }
 
     @Override
