@@ -12,6 +12,24 @@ public class Customer {
     private String customerPhone;
     private String customerEmail;
     private String customerAddress;
+    private String nameServiceAttach;
+
+    public String getNameServiceAttach() {
+        return nameServiceAttach;
+    }
+
+    public void setNameServiceAttach(String nameServiceAttach) {
+        this.nameServiceAttach = nameServiceAttach;
+    }
+
+    public Customer(int id, String customerName, String nameServiceAttach) {
+        this.id = id;
+        this.customerName = customerName;
+        this.nameServiceAttach = nameServiceAttach;
+    }
+
+    public Customer() {
+    }
 
     public Customer(int id, int customerTypeId, String customerName, String customerBirthday, String customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
         this.id = id;

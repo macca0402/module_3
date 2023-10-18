@@ -14,4 +14,24 @@ public class ServiceCustomer implements IServiceCustomer{
     public List<Customer> getAll() {
         return repoCustomer.findAll();
     }
+
+    @Override
+    public List<Customer> delete(int id) {
+        return repoCustomer.delete(id);
+    }
+
+    @Override
+    public Customer findByID(int id) {
+        return repoCustomer.findByID(id);
+    }
+
+    @Override
+    public List<Customer> customerUseService() {
+        return repoCustomer.customerUseService();
+    }
+
+    @Override
+    public List<Customer> update(Customer customer) {
+        return repoCustomer.update(customer);
+    }
 }

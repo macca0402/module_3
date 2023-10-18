@@ -1,4 +1,4 @@
-package com.example.furama2;
+package com.example.furama2.BaseRepository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
